@@ -24,7 +24,7 @@ const Sidebar = () => {
         try {
             localStorage.removeItem("_PBA_ID")
             await logout().unwrap();
-            navigate(0);
+            navigate("/login");
         } catch (error) {
             console.error("Logout failed:", error);
         }
