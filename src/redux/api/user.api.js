@@ -74,7 +74,10 @@ export const userApi = createApi({
             query: () => ({
                 url: `/logout`,
                 method: 'POST',
-            })
+            }),
+            onQueryStarted: () => {
+                window.localStorage.removeItem("_PBA_ID")
+            }
         }),
         getUser: builder.query({
             query: () => ({

@@ -22,7 +22,6 @@ const Sidebar = () => {
 
     const handleLogOut = async () => {
         try {
-            window.localStorage.removeItem("_PBA_ID")
             await logout().unwrap();
             // navigate(0);
             navigate("/login")
