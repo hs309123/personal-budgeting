@@ -98,14 +98,14 @@ const Signup = () => {
                         {isLoading ? "Submitting..." : "Sign Up"}
                     </button>
                 </form>
-                <div className="text-center">
+                {/* <div className="text-center">
                     <p className="text-sm text-gray-600">or</p>
                     <button
                         className="w-full px-4 py-2 mt-2 text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
                     >
                         Login with Google
                     </button>
-                </div>
+                </div> */}
             </div>
         </div>
     );
