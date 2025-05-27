@@ -6,7 +6,7 @@ export const budgetApi = createApi({
         baseUrl: `${import.meta.env.VITE_BACKEND_URL}/api/budget`,
         credentials: 'include',
         prepareHeaders: (headers) => {
-            const token = localStorage.getItem('_PBA_ID');
+            const token = window.localStorage.getItem('_PBA_ID');
             if (token) {
                 headers.set('authorization', `${token}`);
             }

@@ -6,8 +6,9 @@ export const userApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: `${import.meta.env.VITE_BACKEND_URL}/api/user`,
         credentials: "include",
-        headers: {
-            authorization: localStorage.getItem("_PBA_ID") || ""
+        prepareHeaders: (headers) => {
+            let token = window.localStorage.getItem("_PBA_ID") || ""
+            headers.set("authorization", token)
         }
     }),
     endpoints: (builder) => ({
@@ -22,7 +23,7 @@ export const userApi = createApi({
                     const { data } = await queryFulfilled;
                     const token = data.data.token;
                     if (token) {
-                        localStorage.setItem('_PBA_ID', token);
+                        window.localStorage.setItem('_PBA_ID', token);
                     }
                 } catch (error) {
                     console.error('Failed to fetch user:', error);
@@ -41,7 +42,7 @@ export const userApi = createApi({
                     const { data } = await queryFulfilled;
                     const token = data.data.token;
                     if (token) {
-                        localStorage.setItem('_PBA_ID', token);
+                        window.localStorage.setItem('_PBA_ID', token);
                     }
                 } catch (error) {
                     console.error('Failed to fetch user:', error);
@@ -62,7 +63,7 @@ export const userApi = createApi({
                     const { data } = await queryFulfilled;
                     const token = data.data.token;
                     if (token) {
-                        localStorage.setItem('_PBA_ID', token);
+                        window.localStorage.setItem('_PBA_ID', token);
                     }
                 } catch (error) {
                     console.error('Failed to fetch user:', error);
@@ -85,7 +86,7 @@ export const userApi = createApi({
                     const { data } = await queryFulfilled;
                     const token = data.data.token;
                     if (token) {
-                        localStorage.setItem('_PBA_ID', token);
+                        window.localStorage.setItem('_PBA_ID', token);
                     }
                 } catch (error) {
                     console.error('Failed to fetch user:', error);

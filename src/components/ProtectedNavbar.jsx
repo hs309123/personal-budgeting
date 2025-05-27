@@ -9,7 +9,7 @@ const ProtectedNavbar = () => {
 
     const handleLogOut = async () => {
         try {
-            localStorage.removeItem("_PBA_ID")
+            window.localStorage.removeItem("_PBA_ID")
             await logout().unwrap();
             navigate(0);
         } catch (error) {

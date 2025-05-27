@@ -6,7 +6,7 @@ export const dashboardApi = createApi({
         baseUrl: `${import.meta.env.VITE_BACKEND_URL}/api/dashboard`,
         credentials: 'include',
         prepareHeaders: (headers) => {
-            const token = localStorage.getItem('_PBA_ID');
+            const token = window.localStorage.getItem('_PBA_ID');
             if (token) {
                 headers.set('authorization', `${token}`);
             }

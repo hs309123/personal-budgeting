@@ -12,7 +12,7 @@ const PublicRoute = () => {
 
     useEffect(() => {
         if (isSuccess) {
-            localStorage.setItem("_PBA_ID", data.data.token)
+            window.localStorage.setItem("_PBA_ID", data.data.token)
         }
     }, [isSuccess, isError])
 

@@ -6,7 +6,7 @@ export const savingsGoalApi = createApi({
         baseUrl: `${import.meta.env.VITE_BACKEND_URL}/api/savings-goal`,
         credentials: 'include',
         prepareHeaders: (headers) => {
-            const token = localStorage.getItem('_PBA_ID');
+            const token = window.localStorage.getItem('_PBA_ID');
             if (token) {
                 headers.set('authorization', `${token}`);
             }

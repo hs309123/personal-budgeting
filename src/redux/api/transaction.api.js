@@ -5,8 +5,9 @@ export const transactionApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: `${import.meta.env.VITE_BACKEND_URL}/api/transactions`,
         credentials: "include",
-        headers: {
-            authorization: localStorage.getItem("_PBA_ID") || ""
+        prepareHeaders: (headers) => {
+            let token = window.localStorage.getItem("_PBA_ID") || ""
+            headers.set("authorization", token)
         }
     }),
     endpoints: (builder) => ({
