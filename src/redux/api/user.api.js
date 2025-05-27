@@ -75,8 +75,13 @@ export const userApi = createApi({
                 url: `/logout`,
                 method: 'POST',
             }),
-            onQueryStarted: () => {
-                window.localStorage.removeItem("_PBA_ID")
+            onQueryStarted: async (_, { queryFulfilled }) => {
+                try {
+                    await queryFulfilled
+                    window.localStorage.removeItem("_PBA_ID")
+                } catch (error) {
+                    console.log("failed to logout", error)
+                }
             }
         }),
         getUser: builder.query({
