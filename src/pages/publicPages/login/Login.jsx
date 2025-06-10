@@ -25,7 +25,13 @@ const Login = () => {
             }
 
         } catch (error) {
-            console.log(error)
+            if (error.data) {
+                const allErrors = error.data.errors.join(", ");
+                alert(allErrors)
+            }
+            else {
+                alert("Not able to login")
+            }
         }
 
     }
